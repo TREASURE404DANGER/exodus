@@ -29,6 +29,12 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -157,13 +163,13 @@ a {
   pointer-events: auto;
 }
 
-.mobile-menu a {
+.side-menu a {
   padding: 10px 20px;
   font-weight: 500;
   transition: var(--transition);
 }
 
-.mobile-menu a:hover {
+.side-menu a:hover {
   color: var(--brand-navyblue);
 }
 
@@ -175,3 +181,226 @@ a {
   text-align: center;
 }
 
+.servant-sidebar-link {
+  padding: 12px 24px !important;
+  color: var(--brand-navyblue);
+  border-radius: var(--brand-radius);
+  text-align: center;
+  border: 2px solid var(--brand-navyblue);
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+
+  background-image: url("../images/hero-bg.svg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.hero-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 60px 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.hero-heading {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+}
+
+.rotating-word {
+  color: var(--brand-navyblue);
+  display: inline-block;
+}
+
+.hero-subtext {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  max-width: 500px;
+  line-height: 1.3;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 10px 25px;
+  border-radius: var(--brand-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-primary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--brand-navyblue);
+  border: 2px solid var(--brand-navyblue);
+}
+
+.btn-primary:hover {
+  box-shadow: 2.5px 2.5px 0px var(--brand-navyblue);
+}
+
+.btn-primary:active {
+  animation: primaryBtnClick 0.7s ease;
+}
+
+@keyframes primaryBtnClick {
+  0% {
+    box-shadow: 2.5px 2.5px 0px var(--brand-navyblue);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px var(--brand-navyblue);
+    transform: translate(2.5px, 2.5px);
+  }
+
+  100% {
+    box-shadow: 2.5px 2.5px 0px var(--brand-navyblue);
+    transform: translate(0, 0);
+  }
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-dark);
+  border: 2px solid var(--text-dark);
+}
+
+.btn-secondary:hover {
+  box-shadow: 2.5px 2.5px 0px var(--text-dark);
+}
+
+.btn-secondary:active {
+  animation: secondaryBtnClick 0.7s ease;
+}
+
+@keyframes secondaryBtnClick {
+  0% {
+    box-shadow: 2.5px 2.5px 0px var(--text-dark);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    box-shadow: 0px 0px 0px var(--text-dark);
+    transform: translate(2.5px, 2.5px);
+  }
+
+  100% {
+    box-shadow: 2.5px 2.5px 0px var(--text-dark);
+    transform: translate(0, 0);
+  }
+}
+
+.hero-image {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s ease forwards;
+  animation-delay: 0.4s;
+
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.hero-image img {
+  width: 100%;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 0px;
+    text-align: left;
+  }
+
+  .hero-heading {
+    font-size: 2.5rem;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .hero-subtext {
+    font-size: 1.1rem;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+}
+
+/* Dot animation start */
+
+.dot {
+  animation: blink 1.5s infinite steps(1), colorPulse 3s infinite ease-in-out;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.1%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes colorPulse {
+  0% {
+    color: var(--text-dark);
+  }
+  50% {
+    color: var(--brand-navyblue);
+  }
+  100% {
+    color: var(--text-dark);
+  }
+}
+
+/* Dot animation end */
