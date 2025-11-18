@@ -382,6 +382,7 @@ img {
 
 .dot {
   animation: blink 1.5s infinite steps(1), colorPulse 3s infinite ease-in-out;
+  white-space: nowrap;
 }
 
 @keyframes blink {
